@@ -18,12 +18,13 @@ steps:
       username: ec2-user
       key: ${{ secrets.EC2_KEY }}
       script: |
-       
+        cd nodejs || exit
+
         git pull origin main
 
-        docker stop my_app || true
-        docker rm  my_app || true
+        docker rm -f app || true
 
         docker build -t myapp .
-        docker run -d -p 8080:8000 --name app myapp
+
+        docker run -d -p 8080:8080 --name app myapp
 ```
