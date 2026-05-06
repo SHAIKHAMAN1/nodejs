@@ -9,7 +9,7 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Deploy to EC2 via SSH
     uses: appleboy/ssh-action@v0.1.6
@@ -23,4 +23,4 @@ steps:
         sudo docker rm -f app || true
         sudo docker build -t myapp .
         sudo docker run -d -p 8080:8000 --name app myapp
-```
+
