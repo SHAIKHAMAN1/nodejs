@@ -22,9 +22,9 @@ steps:
 
         git pull origin main
 
-        docker rm -f app || true
+        sudo docker rm -f app || true
 
-        docker build -t myapp .
+        sudo docker build -t myapp .
 
-        docker run -d -p 8080:8080 --name app myapp
+        sudo docker run -d -p 8080:8000 --name app myapp
 ```
