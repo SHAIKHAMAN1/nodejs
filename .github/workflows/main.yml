@@ -19,12 +19,8 @@ steps:
       key: ${{ secrets.EC2_KEY }}
       script: |
         cd nodejs || exit
-
         git pull origin main
-
         sudo docker rm -f app || true
-
         sudo docker build -t myapp .
-
         sudo docker run -d -p 8080:8000 --name app myapp
 ```
