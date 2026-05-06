@@ -18,4 +18,4 @@ jobs:
          cd /ec2-user@ip-172-31-6-56 nodejs
          git pull
          docker build -t myapp .
-        docker run -d -p 8080:8000 --name app myapp
+        docker run -d -p 8080:8080 --name app myapp
