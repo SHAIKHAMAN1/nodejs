@@ -1,0 +1,20 @@
+on:
+   push:
+     branches:
+       -main
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        -name: Checkout Code
+        uses: action/Checkout@v4
+
+        -name: Deploy via SSH
+         host: ${{secrets.EC2_HOST}}
+         username: ec2-user
+         key: ${{secrets.EC2_KEY}}
+         script:
+         cd /ec2-user@ip-172-31-6-56 nodejs
+         git pull
+         docker build -t myapp . docker run -d -p 8080:8000 --name app myapp
